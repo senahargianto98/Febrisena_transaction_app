@@ -12,22 +12,22 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: yourpassword
-      MYSQL_DATABASE: yourdatabase
-      MYSQL_USER: yourusername
-      MYSQL_PASSWORD: yourpassword
+      MYSQL_ROOT_PASSWORD: mypass123
+      MYSQL_DATABASE: transaction
+      MYSQL_USER: sena
+      MYSQL_PASSWORD: mypass123
 
   srcConsumer:
-    build: ./srcConsumers
+    build: ./srcConsumer
     ports:
       - "3000:3000"
     environment:
       RABBITMQ_HOST: rabbitmq
-      RABBITMQ_QUEUE: my-queue
+      RABBITMQ_QUEUE: queue2
       MYSQL_HOST: mysql
-      MYSQL_USER: yourusername
-      MYSQL_PASSWORD: yourpassword
-      MYSQL_DATABASE: yourdatabase
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mypass123
+      MYSQL_DATABASE: transaction
 
   srcProducer:
     build: ./srcProducer
@@ -35,8 +35,8 @@ services:
       - "4000:4000"
     environment:
       RABBITMQ_HOST: rabbitmq
-      RABBITMQ_QUEUE: my-queue
+      RABBITMQ_QUEUE: queue2
       MYSQL_HOST: mysql
-      MYSQL_USER: yourusername
-      MYSQL_PASSWORD: yourpassword
-      MYSQL_DATABASE: yourdatabase
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mypass123
+      MYSQL_DATABASE: transaction
