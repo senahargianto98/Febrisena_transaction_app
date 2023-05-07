@@ -17,8 +17,8 @@ services:
       MYSQL_USER: yourusername
       MYSQL_PASSWORD: yourpassword
 
-  node-app-1:
-    build: ./node-app-1
+  srcConsumer:
+    build: ./srcConsumer
     ports:
       - "3000:3000"
     environment:
@@ -29,8 +29,8 @@ services:
       MYSQL_PASSWORD: yourpassword
       MYSQL_DATABASE: yourdatabase
 
-  node-app-2:
-    build: ./node-app-2
+  srcProducer:
+    build: ./srcProducer
     ports:
       - "4000:4000"
     environment:
